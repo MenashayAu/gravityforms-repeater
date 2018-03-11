@@ -1,9 +1,9 @@
 === Gravity Forms Repeater Add-On ===
-Contributors: KodieGrantham
+Contributors: KodieGrantham, Menashay Givoni
 Tags: gravityforms, gravity, forms, form, gravityforms, repeater, repeat, duplicate, duplication, field, fields
-Requires at least: 3.9
-Tested up to: 4.4
-Stable tag: 1.0.9
+Requires at least: 4.9.4
+Tested up to: 4.9.4
+Stable tag: 1.1.0
 
 A Gravity Forms add-on that allows specified groups of fields to be repeated by the user.
 
@@ -83,6 +83,11 @@ Yes! Just go to the form editor and change the `Add HTML` and `Remove HTML` sett
 4. A view of the front-end. The only visible difference will be the added `+` and `-` buttons.
 
 == Changelog ==
+= 1.1.0 =
+* Fixed bugs when users do not fill out all mandatory fields in a repeator block
+* Made plugin work with Gravity Forms 2.2.6
+* Made plugin work with Wordpress 4.9.4
+
 = 1.0.9 =
 * Fixed bug where in some cases a PHP error would occur when attempting to automatically disable ajax on a form.
 * Fixed bug where sometimes a javascript error would occur on date fields with a calendar icon.
