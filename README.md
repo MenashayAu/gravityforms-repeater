@@ -1,10 +1,13 @@
 ### FORKED
-This plugin is a fork and has been modified by Menashay Givoni (http://customiseit.com.au)
-I am not actively mainating it though. I have released here changes that I've made to make this plugin work
-with the current release of Gravity Forms and Wordpress. You are welcome to submit your pull requests
-if so you whish. Note that if you work with Gravity PDF changes are also required in the code of
-Gravity PDF (pull request to the Gravity PDF submitted already).
-See the end of this document.
+This plugin is a fork and has been modified by Menashay Givoni (http://customiseit.com.au).
+I am not actively mainating it though. I have released here changes that I've made -
+* bug fixes 
+* make it work with Gravity Form 2.2.6
+* make it work with Wordpress 4.9.4
+
+Pull requests are welcome.
+Note that if you work with Gravity PDF changes are also required in the code of
+Gravity PDF (pull request to the Gravity PDF submitted already). See the end of this document.
 
 ![](/assets/icon-256x256.png?raw=true)
 # Gravity Forms Repeater Add-On
