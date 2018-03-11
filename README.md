@@ -1,5 +1,10 @@
-# FORKED
-**This plugin is a fork and has been modified by Menashay Givoni (http://customiseit.com.au)**
+### FORKED
+This plugin is a fork and has been modified by Menashay Givoni (http://customiseit.com.au)
+I am not actively mainating it though. I have released here changes that I've made to make this plugin work
+with the current release of Gravity Forms and Wordpress. You are welcome to submit your pull requests
+if so you whish. Note that if you work with Gravity PDF changes are also required in the code of
+Gravity PDF (pull request to the Gravity PDF submitted already).
+See the end of this document.
 
 ![](/assets/icon-256x256.png?raw=true)
 # Gravity Forms Repeater Add-On
@@ -213,8 +218,49 @@ and that's it! You will recieve the latest development versions of this plugin!
 
 and you're good to go!
 
-**Warning: There is a slight possibility that development versions are unstable. Use at your own risk.**
+**If you are using Gravity PDF, replace the code of Gavity PDF --> src --> view --> View_PDF.php with the following code -
+```php
+/* Try and display our HTML */
+        try {
+       	   
+       	    /*
+       	    * Menashay Givoni (http://customiseit.com.au) 29-Apr-2017
+       	    * Process repeater field separately
+       	    */ 	
+            if($field -> type === 'repeater') {
+	        echo($field -> get_value_export($entry, '', 'pdf', false));
+            } else {
+	    	
+            /* Only load our HTML if the field is NOT empty, or the $empty config option is true */
+            if ( ! $class->is_empty() || $show_empty_fields === true ) {
+                /* Load our legacy CSS class names */
+                if ( $load_legacy_css === true ) {
+                    $this->load_legacy_css( $field );
+                }
 
+                /**
+                 * Add CSS Ready Class Float Support to mPDF
+                 * Open a HTML container if needed
+                 */
+                $container->generate( $field );
+
+                echo ( $field->type !== 'section' ) ? $class->html() : $class->html( $show_section_description );
+            } else {
+                /* To prevent display issues we will output the column markup needed */
+                $container->maybe_display_faux_column( $field );
+            }
+        }
+        } catch ( Exception $e ) {
+            $this->log->addError( 'PDF Generation Error', [
+                'field'     => $field,
+                'entry'     => $entry,
+                'config'    => $config,
+                'form_id'   => $form['id'],
+                'exception' => $e->getMessage(),
+            ] );
+        }
+    }
+```
 ### Version
 1.1.0
 
@@ -243,6 +289,7 @@ and you're good to go!
 ### Requirements
 * Wordpress 4.9.4 or later
 * Gravity Forms 2.2.6 or later
+* PHP 5.6
 
 ### Installation
 1. Upload the `repeater-add-on-for-gravity-forms` folder to the `/wp-content/plugins/` directory.
