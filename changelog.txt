@@ -1,3 +1,8 @@
+v1.1.0 (08/14/2018)
+- Fixed bugs where users did not fill out all mandatory fields in a repeator block
+- Made plugin work with Gravity Forms 2.2.6
+- Made plugin work with Wordpress 4.9.4
+
 v1.1.0 (TBA)
 - Fixed bug where sometimes a javascript error would occur in the form editor when trying to save a form after deleting a repeater.
 - Fixed bug where sometimes a 'Undefined Index "conditionalLogic"' error is shown when submitting a form.
