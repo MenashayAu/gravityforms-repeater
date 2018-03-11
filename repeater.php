@@ -4,10 +4,10 @@
  * Plugin Name: Gravity Forms Repeater Add-On
  * Plugin URI: https://wordpress.org/plugins/repeater-add-on-for-gravity-forms/
  * Description: A Gravity Forms add-on that allows specified groups of fields to be repeated by the user.
- * Version: 1.1.0-dev14
- * Author: Kodie Grantham
- * Author URI: http://kodieg.com
- * GitHub Plugin URI: https://github.com/kodie/gravityforms-repeater
+ * Version: 1.1.0
+ * Author: Menashay Givoni (Forked from Kodie Grantham)
+ * Author URI: http://customiseit.com.au
+ * GitHub Plugin URI: https://github.com/MenashayAu/gravityforms-repeater
  * GitHub Branch: development
  * Text Domain: gravityforms-repeater
  * Domain Path: languages
