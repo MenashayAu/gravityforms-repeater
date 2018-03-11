@@ -1,7 +1,17 @@
+/*
+** Menashay Givoni (http://customiseit.com.au) made changes to functions -
+   - function (inputElement)
+   - gfRepeater_getInputValue
+   - gfRepeater_start()
+   
+   Uploaded on 12-March-2018
+*/
+
 var gfRepeater_debug = gfRepeater_php.debug;
 var gfRepeater_repeaters = {};
 var gfRepeater_submitted = false;
 var gfRepeater_init_done = false;
+
 
 /*
 	gfRepeater_getRepeaters()
@@ -241,7 +251,7 @@ function gfRepeater_getRepeaters() {
 								}
 							}
 						};
-
+												
 						childInputs[childInputCount] = {
 							element:inputElement,
 							id:inputId,
@@ -300,7 +310,7 @@ function gfRepeater_setRepeaterChildAttrs(formId, repeaterId, repeaterChildEleme
 	var childId = jQuery(repeaterChildElement).attr('id').split('-')[0];
 	var childKey = gfRepeater_getIndex(repeater['children'], 'id', childId);
 	var checkValidation = jQuery('#gform_wrapper_' + formId).hasClass('gform_validation_error');
-
+	
 	if (childKey) {
 		var failedValidation = false;
 		var child = repeater['children'][childKey];
@@ -346,7 +356,7 @@ function gfRepeater_setRepeaterChildAttrs(formId, repeaterId, repeaterChildEleme
 			var prePopulate = '';
 
 			if (childType == 'radio' || childType == 'time' || childType == 'multiselect' || childType == 'date') {
-				var inputElement = gfRepeater_findElementByNameOrId(repeaterChildElement, null, inputId);
+				 var inputElement = gfRepeater_findElementByNameOrId(repeaterChildElement, null, inputId);				 								 
 			} else {
 				var inputElement = gfRepeater_findElementByNameOrId(repeaterChildElement, inputName, inputId);
 			}
@@ -641,7 +651,7 @@ function gfRepeater_conditionalLogic_do(formId, repeaterId, repeaterChildId, rep
 
 /*
 	gfRepeater_doShortcode(element, shortcode, value)
-		Finds the 'shortcode' inside of 'element' and replaces it's contents with 'value'.
+		Finds the 'shortcode' inside of 'element' and replaces it''s contents with 'value'.
 
 		element			The element to search inside.
 		shortcode		The shortcode to search for.
@@ -1023,7 +1033,24 @@ function gfRepeater_getChoiceValue(fieldElement) {
 		inputElement	The input element.
 */
 function gfRepeater_getInputValue(inputElement) {
-	if (inputElement.is(':checkbox, :radio')) {
+	// Menashay Givoni (http://customiseit.com.au) 27-Apr-2017, process radio and checkbox separately
+	// iterate through all radio options to find if any option is checked.
+	// The way it was, returned 'false' when a radio option is not checked (and hence displays error 'field is required' for required fields)
+	// but in a radio button only a one option can be checked, other options are not checked. When a radio option is not checked it does not mean error
+	if(inputElement.is(':radio')) {
+	   var parent = jQuery(inputElement).parent().parent();
+	   var isChecked = false;
+		   var r = parent.find('input:radio');		   
+		   for(var k=0;k<r.length;k++) {
+		   	if(jQuery(r[k]).is(':checked')) {
+		   	  	isChecked = true;
+		   	  	// break the loop. Only a one radio option can be checked.
+		   	  	continue;
+		   	  } 
+		   }	  
+	   	   return isChecked;
+	   	   	   
+	} else if (inputElement.is(':checkbox')) {
 		if (inputElement.prop('checked') == true) { return true; } else { return false; }
 	} else {
 		return inputElement.val();
@@ -1035,10 +1062,26 @@ function gfRepeater_getInputValue(inputElement) {
 		Sets the value of an input.
 
 		inputElement	The input element.
-		inputValue		The value to set to the input.
+		inputValue	The value to set to the input.
 */
 function gfRepeater_setInputValue(inputElement, inputValue) {
-	if (inputElement.is(':checkbox, :radio')) {
+	// Menashay Givoni (http://customiseit.com.au) 27-Apr-2017, process radio and checkbox separately
+	// for radio button, get the radio element from the parent element. Then iterate through all radio options and apply the 'checked' property only one time.
+	// The way it was each element of the radio button was processed separately. The property 'checked' would then be applied twice (or more)
+	// instead of to only to a one radio option.
+	if (inputElement.is(':radio')) {	
+		var parent = jQuery(inputElement).parent().parent()
+		   var r = parent.find('input:radio');		   
+		   for(var k=0;k<r.length;k++){		   
+		   	if(jQuery(r[k]).val() === inputValue){
+		   	  jQuery(r[k]).prop('checked',true);
+			  //  do not break the loop in case there are more radio buttons 
+			  // in the repeater with the same radio button options, such as yes/no buttons
+		   	  } else {
+		   	  	jQuery(r[k]).prop('checked', false);
+		   	  }
+		   }	  
+	} else if(inputElement.is(':checkbox')) {
 		if (inputValue) { inputElement.prop('checked', true) } else { inputElement.prop('checked', false) }
 	} else {
 		inputElement.val(inputValue);
@@ -1084,7 +1127,7 @@ function gfRepeater_start() {
 	jQuery.each(gfRepeater_repeaters, function(key, repeater){
 		var formId = key;
 		var form = gfRepeater_select(formId);
-
+		
 		jQuery.each(repeater, function(key, value){
 			var repeaterId = key;
 			var repeater = gfRepeater_repeaters[formId][repeaterId];
@@ -1116,8 +1159,19 @@ function gfRepeater_start() {
 						var endElement = repeater['controllers']['end'];
 						var fieldDisplay = startElement.css('display');
 						var repeaterChildren = gfRepeater_select(formId, repeaterId);
-
-						repeaterChildren.css('display', fieldDisplay);
+						// M.G (http://customiseit.com.au) 28-Apr-2017
+						// when css is 'none' enforce this css so that child elements are not shown (hidden)
+						// when however the parent element (startElement) is populated with a value
+						// do not populate the child elements with  this same css value. 
+						// Child elements may have different css (such as display: inline-block in the case of gf_left_half, gf_right_half and other
+						// predefined css styles).
+						// It used to force all child elements to the same css as the parent resulting in a loss of the individual css style
+						if(fieldDisplay === 'none') {
+							repeaterChildren.css('display', fieldDisplay);
+						} else {
+							// clear the previously set display css
+							repeaterChildren.css('display', '');
+						}
 						endElement.css('display', fieldDisplay);
 					}
 				}
