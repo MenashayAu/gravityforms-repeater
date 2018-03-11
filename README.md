@@ -1,5 +1,5 @@
-# WAIT!
-**This plugin is no longer maintained and is probably broken, go use [Gravity Forms Nested Forms by Gravity Wiz](https://gravitywiz.com/documentation/gravity-forms-nested-forms/?ref=145) instead!**
+# FORKED
+**This plugin is a fork and has been modified by Menashay Givoni (http://customiseit.com.au) on 12-March-2018**
 
 ![](/assets/icon-256x256.png?raw=true)
 # Gravity Forms Repeater Add-On
