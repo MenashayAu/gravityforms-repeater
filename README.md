@@ -1,5 +1,5 @@
 # FORKED
-**This plugin is a fork and has been modified by Menashay Givoni (http://customiseit.com.au) on 12-March-2018**
+**This plugin is a fork and has been modified by Menashay Givoni (http://customiseit.com.au)**
 
 ![](/assets/icon-256x256.png?raw=true)
 # Gravity Forms Repeater Add-On
@@ -216,9 +216,13 @@ and you're good to go!
 **Warning: There is a slight possibility that development versions are unstable. Use at your own risk.**
 
 ### Version
-1.0.9
+1.1.0
 
 ### Changelog
+##### 1.1.0
+* Fixed bugs to make this plugin work with WordPress 4.9.4 and with Gravity Forms 2.2.6
+* Fixed numerous bugs when users did not fill out all mandatory fields in a repeator block
+
 ##### 1.0.9
 * Fixed bug where in some cases a PHP error would occur when attempting to automatically disable ajax on a form.
 * Fixed bug where sometimes a javascript error would occur on date fields with a calendar icon.
@@ -237,8 +241,8 @@ and you're good to go!
 * When exporting entries, repeater child data is now exported in a comma-separated list.
 
 ### Requirements
-* Wordpress 3.9 or later
-* Gravity Forms 1.9 or later
+* Wordpress 4.9.4 or later
+* Gravity Forms 2.2.6 or later
 
 ### Installation
 1. Upload the `repeater-add-on-for-gravity-forms` folder to the `/wp-content/plugins/` directory.
