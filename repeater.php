@@ -13,7 +13,7 @@
  * Domain Path: languages
  */
 
-define('GF_REPEATER_VERSION', '1.1.0-dev14');
+define('GF_REPEATER_VERSION', '1.1.0');
 define('GF_REPEATER_PATH', basename(__DIR__).'/'.basename(__FILE__));
 if( !defined('GF_REPEATER_DEBUG') ){
 	define('GF_REPEATER_DEBUG', WP_DEBUG);
@@ -24,7 +24,7 @@ function gfrepeater_row_meta($links, $file) {
 	if (strpos($file, basename(__FILE__)) !== false) {
 		$new_links = array(
 			'<a href="http://kodieg.com/projects/gravity-forms-repeater-add-on" target="_blank">Visit plugin site</a>',
-			'<a href="https://github.com/kodie/gravityforms-repeater" target="_blank">GitHub</a>'
+			'<a href="https://github.com/GravityPDF/gravity-pdf" target="_blank">GitHub</a>'
 		);
 		$links = array_merge($links, $new_links);
 	}
@@ -36,7 +36,7 @@ if (class_exists("GFForms")) {
 
 	class GFRepeater extends GFAddOn {
 		protected $_version = GF_REPEATER_VERSION;
-		protected $_min_gravityforms_version = "1.9";
+		protected $_min_gravityforms_version = "2.2.6";
 		protected $_slug = "gravityformsrepeater";
 		protected $_path = GF_REPEATER_PATH;
 		protected $_full_path = __FILE__;
