@@ -8,7 +8,7 @@ Changes in this initial fork version -
 
 Pull requests are welcome.
 Note that if you work with Gravity PDF changes are also required in the code of
-Gravity PDF (pull request to the Gravity PDF submitted already). See the end of this document.
+Gravity PDF. See the end of this document.
 
 ![](/assets/icon-256x256.png?raw=true)
 # Gravity Forms Repeater Add-On
