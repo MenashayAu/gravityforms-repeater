@@ -1,9 +1,10 @@
 ### FORKED
 This plugin is a fork and has been modified by Menashay Givoni (http://customiseit.com.au).
-I am not actively mainating it though. I have released here changes that I've made -
+I am not **actively** mainating it. I am however, from time to time, going to fix bugs and ensure it works with current version of Wordpress and Gravity Forms.
+Changes in this initial fork version -
 * bug fixes 
-* make it work with Gravity Form 2.2.6
-* make it work with Wordpress 4.9.4
+* made it work with Gravity Form 2.2.6
+* made it work with Wordpress 4.9.4
 
 Pull requests are welcome.
 Note that if you work with Gravity PDF changes are also required in the code of
