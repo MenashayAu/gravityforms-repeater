@@ -1,14 +1,14 @@
 ### FORKED
-This plugin is a fork and has been modified by Menashay Givoni (http://customiseit.com.au).
-I am not **actively** mainating it. I am however, from time to time, going to fix bugs and ensure it works with current version of Wordpress and Gravity Forms.
-Changes in this initial fork version -
-* bug fixes 
-* made it work with Gravity Form 2.2.6
-* made it work with Wordpress 4.9.4
-
-Pull requests are welcome.
-Note that if you work with Gravity PDF changes are also required in the code of
-Gravity PDF. See the end of this document.
+This code is a fork and has been updatd by Menashay Givoni (http://customiseit.com.au).
+The author of this plugin is: https://github.com/kodie/gravityforms-repeater
+The author however no longer maintains this code hence I forked it and fixed a few bugs so that it at least work with current version of WordPress and Gravit Forms.
+Please notat that at this stage, I only maintain this code from time to time making sure it works with current WordPress version (and Gravity Forms).
+Changes in this code -
+* a few bug fixes for when users do not fill in all mandatory fields in a repeator block
+* added functionality to work with Gravity PDF
+  
+  Note that if you work with Gravity PDF changes are also required in the code of
+  Gravity PDF. See the end of this document.
 
 ![](/assets/icon-256x256.png?raw=true)
 # Gravity Forms Repeater Add-On
