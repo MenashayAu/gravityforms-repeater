@@ -7,6 +7,11 @@ Stable tag: 1.1.0
 
 A Gravity Forms add-on that allows specified groups of fields to be repeated by the user.
 
+== 12-March-2018 ==
+**This code was forked from the plugin author (https://github.com/kodie/gravityforms-repeater)
+It is now working with Wordpress 4.9.4 and with Gravity Forms 2.2.6
+
+The author (Kodie Grantham) states the following -
 == WAIT! ==
 **This plugin is no longer maintained and is probably broken, go use [Gravity Forms Nested Forms by Gravity Wiz](https://gravitywiz.com/documentation/gravity-forms-nested-forms/?ref=145) instead!**
 
