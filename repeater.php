@@ -6,7 +6,7 @@
  * Description: A Gravity Forms add-on that allows specified groups of fields to be repeated by the user.
  * Version: 1.1.0
  * Author: Menashay Givoni (Forked from Kodie Grantham)
- * Author URI: http://customiseit.com.au
+ * Author URI: http://customiseit.com.au (forked from https://github.com/kodie/gravityforms-repeater)
  * GitHub Plugin URI: https://github.com/MenashayAu/gravityforms-repeater
  * GitHub Branch: development
  * Text Domain: gravityforms-repeater
