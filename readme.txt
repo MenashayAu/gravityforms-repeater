@@ -1,5 +1,5 @@
 === Gravity Forms Repeater Add-On ===
-Contributors: KodieGrantham, Menashay Givoni
+Contributors: KodieGrantham
 Tags: gravityforms, gravity, forms, form, gravityforms, repeater, repeat, duplicate, duplication, field, fields
 Requires at least: 4.9.4
 Tested up to: 4.9.4
