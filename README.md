@@ -270,8 +270,8 @@ and you're good to go!
 
 ### Changelog
 ##### 1.1.0
-* Fixed bugs to make this plugin work with WordPress 4.9.4 and with Gravity Forms 2.2.6
-* Fixed numerous bugs when users did not fill out all mandatory fields in a repeator block
+* Fixed bugs when users did not fill out all mandatory fields in a repeator block
+* Tested against WordPress 4.9.4 and Gravity Forms 2.2.6
 
 ##### 1.0.9
 * Fixed bug where in some cases a PHP error would occur when attempting to automatically disable ajax on a form.
