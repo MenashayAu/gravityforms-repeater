@@ -1,4 +1,5 @@
 v1.1.0 (08/14/2018)
+- Forked the code from https://github.com/kodie/gravityforms-repeater
 - Fixed bugs where users did not fill out all mandatory fields in a repeator block
 - Made plugin work with Gravity Forms 2.2.6
 - Made plugin work with Wordpress 4.9.4
