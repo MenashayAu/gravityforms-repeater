@@ -1,7 +1,7 @@
 ### FORKED
 This code is a fork and has been updatd by Menashay Givoni (http://customiseit.com.au).
 The author of this plugin is: https://github.com/kodie/gravityforms-repeater
-The author however no longer maintains this code hence I forked it and fixed a few bugs so that it at least works with current version of WordPress and Gravit Forms.
+The author however no longer maintains this code hence I forked it and fixed a few bugs so that it at least works with current version of WordPress and Gravity Forms.
 Please notat that at this stage, I only maintain this code from time to time making sure it works with current WordPress version (and Gravity Forms).
 Changes in this code -
 * a few bug fixes for when users do not fill in all mandatory fields in a repeator block
